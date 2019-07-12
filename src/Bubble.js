@@ -7,6 +7,7 @@ import { Text, Clipboard, StyleSheet, TouchableWithoutFeedback, View, ViewPropTy
 import MessageText from './MessageText';
 import MessageImage from './MessageImage';
 import MessageVideo from './MessageVideo';
+import MessageReply from './MessageReply';
 
 import Time from './Time';
 import Color from './Color';
@@ -97,6 +98,13 @@ export default class Bubble extends React.Component {
         return this.props.renderMessageVideo(messageVideoProps);
       }
       return <MessageVideo {...messageVideoProps} />;
+    }
+    return null;
+  }
+
+  renderMessageReply() {
+    if(this.props.currentMessage.reply){
+    return <MessageReply {...this.props}/>;
     }
     return null;
   }
